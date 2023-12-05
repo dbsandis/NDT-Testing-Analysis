@@ -4,6 +4,13 @@ create virtual environment with requirement.txt
 and execute with 
     streamlit run app.py
 
+VISUAL ANALYTICS MID-TERM PROJECT
+=======
+
+# Streamlit App Link
+
+https://non-destructive-testing-analytics-znmylw5ge5rg6dsbj4scbb.streamlit.app/
+
 # Introduction
 
 A little history:  

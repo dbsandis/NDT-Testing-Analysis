@@ -27,13 +27,23 @@ def show_histograms(df):
     - **Guiding Data Analysis**: Histograms can guide the direction of further data analysis.
     - **Data Transformation**: For instance, the observed distribution might suggest the need for data transformation, stratification, or the use of specific statistical models.
     """)
+    
+    # Extract unique years and sort them in reverse order
+    unique_years = sorted(df['Date'].dt.year.unique(), reverse=True)
+
+    # Use the unique, sorted years in the select box
+    year = st.selectbox('Select Year for Inspection', options=unique_years)
+
+    # Filter data based on selected year
+    # Ensure you're comparing the year part of the 'Date' column
+    filtered_df = df[df['Date'].dt.year == year].copy()  # Create a copy to avoid SettingWithCopyWarning
 
 
     # Dropdown to select a date
-    date = st.selectbox('Select Date', options=df['Date'].unique())
+    #date = st.selectbox('Select Date', options=df['Date'].unique())
 
     # Filter the dataframe based on the selected date
-    filtered_df = df[df['Date'] == date].copy()  # Create a copy to avoid SettingWithCopyWarning
+    #filtered_df = df[df['Date'] == date].copy()  # Create a copy to avoid SettingWithCopyWarning
 
     # Convert 'Reading' column to numeric, coercing errors to NaN
     #filtered_df["Reading"] = pd.to_numeric(filtered_df["Reading"], errors="coerce")
@@ -85,5 +95,5 @@ def show_histograms(df):
     st.pyplot(fig)
 
     # Display the filtered dataframe
-    st.write(f"Displaying data for: {date}")
+    st.write(f"Displaying data for: {year}")
     st.dataframe(filtered_df)
