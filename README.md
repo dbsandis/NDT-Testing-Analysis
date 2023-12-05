@@ -1,5 +1,5 @@
 # Non-Destructive-Testing-Analytics
-<<<<<<< HEAD
+
 create virtual environment with requirement.txt
 and execute with 
     streamlit run app.py
