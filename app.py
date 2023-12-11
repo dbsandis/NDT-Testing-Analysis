@@ -24,32 +24,42 @@ def main():
 
     # HTML to center the title
     centered_title_html = """
-        <h1 style="text-align: center;">Recovery Boiler Ultrasonic Data Visualization App</h1>
+        <h1 style="text-align: center;">Ultrasonic Data Visualization</h1>
         """
     # Render the centered title using markdown
     st.markdown(centered_title_html, unsafe_allow_html=True)
-    # Render the centered title using markdown
-    st.markdown("""
-    <p style="text-align: center;">
-        This app provides visual analysis of ultrasonic data using histograms, trend & heatmaps.
-    </p>
-""", unsafe_allow_html=True)
-    
+
+    # HTML to center the additional description
+    second_line_html = """
+        <p style="text-align: center;">App provides Visual Analysis<br>
+        of ultrasonic data using<br>
+        histograms, trends & heatmaps.</p>
+        """
+    st.markdown(second_line_html, unsafe_allow_html=True)
 
     st.write()
 
     # Sidebar for navigation
     st.sidebar.title('Navigation')
-    
-    # Adding radio buttons
-    page = st.sidebar.radio('Select a Page:', ['Introduction', 'Histograms', 'Trends', 'Heatmaps'])
 
-    # Descriptions for each page
-    st.sidebar.markdown("**Introduction:** Overview of the project.")
-    st.sidebar.markdown("**Histograms:** Explore data distributions.")
-    st.sidebar.markdown("**Trends:** Analyze data trends over time.")
-    st.sidebar.markdown("**Heatmaps:** Visualize data density and patterns.")
-    # Function to load data with caching
+    # Tooltips also support markdown
+    radio_markdown = '''
+        \n"**Introduction:** Overview of the project."
+        \n"**Histograms:** Explore data distributions."
+        \n"**Trends:** Analyze data trends over time."
+        \n"**Heatmaps:** Visualize data density and patterns."
+        '''.strip()
+    
+
+    # Adding radio buttons
+    page = st.sidebar.radio('Select a Page:', ['Introduction', 'Histograms', 'Trends', 'Heatmaps'], help=radio_markdown)
+
+    # # Descriptions for each page
+    # st.sidebar.markdown("**Introduction:** Overview of the project.")
+    # st.sidebar.markdown("**Histograms:** Explore data distributions.")
+    # st.sidebar.markdown("**Trends:** Analyze data trends over time.")
+    # st.sidebar.markdown("**Heatmaps:** Visualize data density and patterns.")
+    # # Function to load data with caching
 
     # Path to the merged data
     file_path = 'final_combined_file_path.csv'
